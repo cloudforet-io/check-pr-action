@@ -1,0 +1,23 @@
+name: 'Check Pull Request'
+description: 'Check Pull Request, signed-off-by'
+author: 'cloudforet-io'
+
+# Define your inputs here.
+inputs:
+  token:
+    description:
+      'GitHub token for commenting on PRs, defaults to using
+      secrets.GITHUB_TOKEN'
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  signedoff:
+    description: 'The result of signed-off-by check'
+
+runs:
+  using: node20
+  main: dist/index.js
+branding:
+  icon: check-cicle
+  color: purple

@@ -1,0 +1,28 @@
+name: PR-BOT
+
+on:
+  pull_request_target:
+
+jobs:
+  review-pull-request:
+    name: Check Pull Request
+    env:
+      FORCE_COLOR: 1
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Check signed commits
+        id: review
+        uses: ./
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Result
+        if: ${{ steps.review.outputs.signedoff == 'false' }}
+        run: |
+          echo "The review result is ${{ steps.review.outputs.signedoff }}"
+          exit 1
