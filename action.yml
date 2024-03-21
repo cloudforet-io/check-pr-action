@@ -1,4 +1,4 @@
-name: 'Check Pull Request'
+name: 'Check PR'
 description: 'Check Pull Request, signed-off-by'
 author: 'cloudforet-io'
 
