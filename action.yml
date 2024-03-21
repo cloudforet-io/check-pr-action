@@ -19,5 +19,4 @@ runs:
   using: node20
   main: dist/index.js
 branding:
-  icon: check-cicle
-  color: purple
+  icon: check-square
