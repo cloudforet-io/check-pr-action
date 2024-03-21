@@ -16,7 +16,8 @@ jobs:
   check-pull-request:
     name: Check Pull Request
     runs-on: ubuntu-latest
-
+    permissions:
+      pull-requests: write
     steps:
       - name: Check signed commits
         id: review
